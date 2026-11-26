@@ -2,7 +2,7 @@
 
 Plataforma integrada para apoiar a operação de restaurantes por quilo, conectando monitoramento de ingredientes, pedidos de bebidas, gestão de mesas e indicadores administrativos.
 
-> **Status:** estrutura inicial e documentação acadêmica. Os módulos de hardware e integrações externas ainda dependem de montagem, configuração e testes no estabelecimento. Não são apresentados como funcionalidades já implantadas.
+> **Status:** MVP inicial em desenvolvimento. Já existe uma primeira API de mesas com Spring Boot e uma interface React que consome essa API. Os módulos de hardware, pedidos, autenticação e relatórios ainda precisam ser implementados e testados.
 
 ## Problema
 
@@ -12,21 +12,35 @@ Restaurantes por quilo podem ter dificuldade para acompanhar a saída de cada in
 
 Uma plataforma dividida em cinco frentes integradas:
 
-1. **Balanças inteligentes:** células de carga com HX711 e ESP32 monitoram a variação de peso das cubas. O sistema calcula a saída estimada por ingrediente.
-2. **Comanda digital:** QR Code da mesa permite solicitar bebidas e acompanhar o status do pedido.
-3. **Mapa de mesas:** painel visual apresenta mesas disponíveis, ocupadas, em limpeza ou indisponíveis.
+1. **Balanças inteligentes:** ESP32 + HX711 para monitorar variações de peso das cubas e estimar a saída por ingrediente.
+2. **Comanda digital:** QR Code da mesa para solicitar bebidas e acompanhar o status do pedido.
+3. **Mapa de mesas:** visualização de mesas disponíveis, ocupadas, em limpeza ou indisponíveis.
 4. **Aplicativo operacional:** equipe registra atendimento, reposição e início/fim da limpeza.
-5. **Painel do gestor:** reúne indicadores de saída estimada, reposições, pedidos e ocupação.
+5. **Painel do gestor:** indicadores de saída estimada, reposições, pedidos e ocupação.
 
-## Arquitetura prevista
+## Tecnologias
 
-- **Frontend:** React + TypeScript.
-- **Backend:** Java + Spring Boot (API REST).
-- **Banco de dados:** MySQL.
-- **IoT:** ESP32 + HX711 + célula de carga.
-- **Comunicação:** HTTP/REST entre aplicações e API; integração IoT por endpoint autenticado ou serviço de mensageria em etapa posterior.
+- Frontend: React + TypeScript + Vite.
+- Backend: Java 21 + Spring Boot 3 + Spring Data JPA.
+- Banco de dados: MySQL 8.
+- IoT planejado: ESP32 + HX711 + célula de carga.
 
-Consulte [arquitetura e integração](docs/ARQUITETURA.md), [detalhamento do projeto](docs/PROJETO.md) e [modelo de dados](database/schema.sql).
+## O que já está implementado
+
+- API REST para listar, cadastrar e alterar o estado das mesas.
+- Persistência das mesas com Spring Data JPA.
+- Interface web para visualizar mesas, contadores e alterar estados.
+- Modelo inicial do banco de dados.
+- Documentação e diagramas de arquitetura.
+
+## O que ainda está em desenvolvimento
+
+- Autenticação e autorização por perfil.
+- Comanda digital e fluxo de bebidas.
+- Fluxo completo de atendimento e limpeza.
+- Integração física com ESP32/HX711.
+- Cálculo validado de saídas estimadas e painel de indicadores.
+- Testes integrados e implantação.
 
 ## Estrutura do repositório
 
@@ -34,50 +48,35 @@ Consulte [arquitetura e integração](docs/ARQUITETURA.md), [detalhamento do pro
 projeto-restaurante-inteligente/
 ├── README.md
 ├── docs/
-│   ├── PROJETO.md
-│   └── ARQUITETURA.md
 ├── database/
-│   └── schema.sql
 ├── backend/
-│   └── README.md
 ├── frontend/
-│   └── README.md
 ├── hardware/
-│   └── README.md
 ├── apresentacao/
-│   └── README.md
 └── evidencias/
-    └── README.md
 ```
 
-## Demonstração e materiais da avaliação
+## Documentação
 
-- **Capturas de tela (máximo 5):** serão adicionadas em [evidencias/](evidencias/README.md) quando as telas do protótipo estiverem disponíveis. Não são usadas imagens ilustrativas como se fossem capturas reais.
-- **Vídeo (até 2 minutos):** link será inserido aqui após a gravação da demonstração prática.
-- **Slides (até 5):** arquivo e link serão adicionados em [apresentacao/](apresentacao/README.md).
-- **Diagramas:** disponíveis na documentação de arquitetura e integração.
+- [Detalhamento do projeto](docs/PROJETO.md)
+- [Arquitetura e integração](docs/ARQUITETURA.md)
+- [Script de criação do banco](database/schema.sql)
+- [Instruções do backend](backend/README.md)
+- [Instruções do frontend](frontend/README.md)
+- [Documentação do hardware](hardware/README.md)
 
-## Regras importantes e limitações
+## Materiais para avaliação
 
-- A balança mede a variação de peso da cuba. Isso representa **saída estimada**, não prova quanto foi consumido, desperdiçado ou por qual cliente.
-- Reposição, retirada da cuba, tara, oscilação e manuseio precisam ser considerados na calibração.
-- O custo estimado pode ser calculado por `(gramas de saída / 1000) × custo por kg`, mas margem real exige conciliação com compras, estoque, perdas e vendas.
-- A comanda de bebidas pode funcionar de forma independente; integração com PDV depende da API e das condições do fornecedor.
-- A mesa só deve voltar ao estado disponível depois da conclusão da limpeza.
-- Dados demonstrativos devem ser identificados como fictícios.
+- **Capturas de tela (máximo 5):** adicionar somente imagens reais do protótipo em [evidencias/](evidencias/README.md).
+- **Vídeo (até 2 minutos):** inserir o link após gravar a demonstração prática.
+- **Apresentação (até 5 slides):** adicionar o arquivo e link em [apresentacao/](apresentacao/README.md).
+- **Diagramas:** estão documentados em [docs/ARQUITETURA.md](docs/ARQUITETURA.md).
 
-## Plano de desenvolvimento
+## Cuidados de interpretação
 
-1. Modelar banco de dados e regras de negócio.
-2. Construir API REST e autenticação/perfis.
-3. Desenvolver mapa de mesas, comanda e painel web.
-4. Integrar e calibrar o módulo ESP32/HX711.
-5. Testar os fluxos ponta a ponta e registrar evidências.
-6. Preparar vídeo e apresentação final.
+A balança mede a variação de peso da cuba. Isso representa **saída estimada**, não prova quanto foi consumido, desperdiçado ou por qual cliente. Reposição, tara, oscilação e manuseio precisam ser considerados na calibração.
 
-## Como contribuir ou executar
-
-Consulte os READMEs de cada módulo. As instruções específicas de instalação serão atualizadas conforme backend, frontend e hardware forem implementados e testados.
+Dados demonstrativos devem ser identificados como fictícios. Integração com PDV depende da API do fornecedor.
 
 ---
 Projeto acadêmico de Análise e Desenvolvimento de Sistemas.
