@@ -1,19 +1,31 @@
 # Frontend — React + TypeScript
 
-Interface web responsiva para três contextos de uso:
+Interface web inicial do projeto, construída com React, TypeScript e Vite.
 
-- Cliente: cardápio e solicitação de bebidas após leitura do QR Code.
-- Funcionários: pedidos, atendimento, mapa de mesas e limpeza.
-- Gestor: indicadores, ingredientes, custos estimados e reposições.
+## Implementado nesta primeira etapa
 
-## Telas previstas
+- Dashboard resumido com contagem de mesas por estado.
+- Listagem visual das mesas.
+- Alteração do estado de uma mesa pela API.
+- Layout responsivo para desktop e celular.
 
-1. Dashboard do gestor.
-2. Mapa visual de mesas.
-3. Comanda digital e seleção de bebidas.
-4. Painel de pedidos para a equipe.
-5. Cadastro e monitoramento de ingredientes.
+## Como executar
 
-## Integração
+1. Instale Node.js LTS.
+2. Na pasta `frontend`, execute:
 
-O frontend consumirá a API REST do Spring Boot. A URL base deve ser configurada por variável de ambiente. Não armazenar credenciais sensíveis no código-fonte.
+```bash
+npm install
+npm run dev
+```
+
+3. Acesse o endereço local exibido pelo Vite (normalmente `http://localhost:5173`).
+4. Inicie antes a API Spring Boot e configure o MySQL conforme o README do backend.
+
+A URL da API pode ser definida em `.env`:
+
+```env
+VITE_API_URL=http://localhost:8080
+```
+
+> Esta primeira tela cobre o mapa operacional básico. Comanda de bebidas, painel completo do gestor e telas da equipe ainda estão no planejamento.
