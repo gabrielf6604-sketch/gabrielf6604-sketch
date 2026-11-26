@@ -93,6 +93,22 @@ Projetos de estudo para praticar fundamentos do desenvolvimento front-end.
   </a>
 </div>
 
+## 🍽️ Projeto em destaque — Restaurante Inteligente
+
+Projeto acadêmico de uma plataforma integrada para restaurantes por quilo, com foco em controle operacional, estimativa de saída de ingredientes e organização do atendimento.
+
+- **Balanças inteligentes:** ESP32 + HX711 para acompanhar variações de peso nas cubas.
+- **Comanda digital:** pedido de bebidas por QR Code associado à mesa.
+- **Mapa de mesas:** visualização de disponibilidade, ocupação e limpeza.
+- **Aplicativo da equipe:** atualização dos atendimentos e tarefas operacionais.
+- **Painel do gestor:** indicadores, reposições e relatórios.
+
+📁 [Acessar documentação, arquitetura, banco de dados e código do projeto](./projeto-restaurante-inteligente/)
+
+> O repositório identifica claramente o que é proposta, protótipo e implementação. Leituras de balança são tratadas como estimativas de saída da cuba, não como consumo individual confirmado.
+
+---
+
 ## 📚 Minha jornada de aprendizado
 
 | Área | O que venho praticando |
