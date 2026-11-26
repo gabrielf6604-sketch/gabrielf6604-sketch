@@ -1,0 +1,28 @@
+* { box-sizing: border-box; }
+:root { font-family: Inter, system-ui, Arial, sans-serif; color: #e8edf6; background: #0b1220; }
+body { margin: 0; min-width: 320px; }
+button, select { font: inherit; }
+.container { max-width: 1180px; margin: 0 auto; padding: 44px 28px; }
+header, .section-heading, .table-top { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.eyebrow { color: #69a7ff; font-size: .72rem; letter-spacing: .16em; font-weight: 800; }
+h1 { margin: 8px 0; font-size: clamp(2rem, 5vw, 3.2rem); }
+header p, .section-heading p { color: #9aa9c0; margin-top: 4px; }
+button { border: 0; border-radius: 10px; padding: 12px 18px; color: white; background: #2563eb; cursor: pointer; }
+.summary { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin: 34px 0 42px; }
+.summary article, .table-card { background: #141f32; border: 1px solid #25344d; border-radius: 16px; padding: 20px; }
+.summary span, .table-card p, .table-card small, .table-card label { display: block; color: #9aa9c0; }
+.summary strong { display: block; font-size: 2rem; margin-top: 10px; }
+h2 { margin-bottom: 0; }
+.tables { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 18px; }
+.table-card { border-top: 4px solid #64748b; }
+.table-card.disponivel { border-top-color: #22c55e; }
+.table-card.ocupada { border-top-color: #f59e0b; }
+.table-card.em_limpeza { border-top-color: #60a5fa; }
+.table-card.indisponivel { border-top-color: #ef4444; }
+.table-top strong { font-size: 1.25rem; }
+.table-top span { font-size: .8rem; color: #c5d1e2; }
+.table-card label { margin: 18px 0 7px; font-size: .8rem; }
+select { width: 100%; padding: 10px; border-radius: 8px; color: #e8edf6; background: #0b1220; border: 1px solid #35445c; }
+.error { padding: 14px; border-radius: 10px; color: #fecaca; background: #451a1a; }
+footer { color: #7889a3; margin-top: 44px; font-size: .85rem; }
+@media (max-width: 700px) { .container { padding: 28px 16px; } .summary { grid-template-columns: repeat(2, 1fr); } header { align-items: flex-start; flex-direction: column; } }
