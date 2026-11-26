@@ -1,14 +1,17 @@
 # Apresentação final
 
-Adicionar aqui a apresentação em PDF ou PPTX com no máximo cinco slides.
+A apresentação em PowerPoint está disponível no repositório:
 
-Estrutura sugerida:
+[**Apresentacao_Restaurante_Inteligente_Gabriel_Ferreira.pptx**](Apresentacao_Restaurante_Inteligente_Gabriel_Ferreira.pptx)
+
+O material deve permanecer com no máximo cinco slides e contemplar:
+
 1. Projeto, contexto e objetivo.
 2. Problema identificado e solução proposta.
 3. Etapas de desenvolvimento e arquitetura.
-4. Integração entre frontend, API, banco e hardware.
+4. Integração entre interface, API, banco e hardware.
 5. Demonstração, resultados, limitações e próximos passos.
 
-**Vídeo de demonstração (até 2 minutos):** inserir o link após gravar e publicar o vídeo. O vídeo deve mostrar a solução prática executando, sem apresentar simulações como integrações físicas já concluídas.
+**Vídeo de demonstração (até 2 minutos):** link ainda pendente de gravação e publicação. Consulte o [roteiro de vídeo](../docs/ROTEIRO_VIDEO.md).
 
-**Status:** roteiro definido; arquivo final e link do vídeo ainda serão adicionados.
+**Atenção:** diferencie claramente o protótipo executável das funcionalidades planejadas. Não apresente sensor físico ou integração de pedidos como concluídos sem demonstração real.
